@@ -1,4 +1,4 @@
-# MEFT - Managed Enterprise File Transfer
+# Xskaliber EFT - Managed Enterprise File Transfer
 
 <div align="center">
 
@@ -18,9 +18,9 @@
 
 MEFT is a **production-ready, enterprise file transfer platform** designed to provide AWS Transfer Family-comparable capabilities at a fraction of the cost. Perfect for enterprises requiring secure B2B file transfers with complete infrastructure control.
 
-### Why Choose MEFT?
+### Why Choose Xskaliber EFT?
 
-| Feature | AWS Transfer Family | MEFT |
+| Feature | AWS Transfer Family | Xskaliber EFT |
 |---------|---------------------|------|
 | **Monthly Cost (100 users)** | ~$2,160 + data transfer | ~$842-942 (67% savings) |
 | **Web UI** | ❌ None | ✅ Full admin & user portal |
