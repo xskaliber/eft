@@ -1,0 +1,140 @@
+THIRD-PARTY NOTICES AND LICENSES
+
+This file contains notices and licenses for third-party software included in or 
+used by the Xskaliber EFT software.
+
+================================================================================
+
+DOCKER CONTAINER COMPONENTS
+
+The Xskaliber EFT Docker containers include the following open-source components:
+
+1. ProFTPD
+   License: GNU General Public License v2
+   Homepage: http://www.proftpd.org/
+   Used for: SFTP server functionality
+   
+   Note: ProFTPD is distributed as a separate container. Its GPL v2 license 
+   applies only to that container component and does not affect MEFT's 
+   proprietary license.
+
+2. ClamAV (if virus scanning is enabled)
+   License: GNU General Public License v2
+   Homepage: https://www.clamav.net/
+   Used for: Virus scanning functionality
+
+================================================================================
+
+BACKEND DEPENDENCIES (Go Libraries)
+
+The Xskaliber EFT backend uses the following Go libraries:
+
+1. Echo Web Framework
+   License: MIT License
+   Repository: https://github.com/labstack/echo
+   Copyright (c) 2020 LabStack
+
+2. GORM
+   License: MIT License
+   Repository: https://github.com/go-gorm/gorm
+   Copyright (c) 2020 Jinzhu
+
+3. JWT-Go
+   License: MIT License
+   Repository: https://github.com/golang-jwt/jwt
+   Copyright (c) 2012 Dave Grijalva
+
+4. PostgreSQL Driver
+   License: MIT License
+   Repository: https://github.com/lib/pq
+   Copyright (c) 2011-2013 'pq' Contributors
+
+[Additional Go dependencies listed in go.mod]
+
+================================================================================
+
+FRONTEND DEPENDENCIES (JavaScript/TypeScript Libraries)
+
+The MEFT frontend uses the following npm packages:
+
+1. Next.js
+   License: MIT License
+   Repository: https://github.com/vercel/next.js
+   Copyright (c) 2024 Vercel, Inc.
+
+2. React
+   License: MIT License
+   Repository: https://github.com/facebook/react
+   Copyright (c) Meta Platforms, Inc.
+
+3. Material-UI (MUI)
+   License: MIT License
+   Repository: https://github.com/mui/material-ui
+   Copyright (c) 2014 Call-Em-All
+
+4. NextAuth.js
+   License: ISC License
+   Repository: https://github.com/nextauthjs/next-auth
+   Copyright (c) 2022 Iain Collins
+
+[Additional npm dependencies listed in package.json]
+
+================================================================================
+
+FULL LICENSE TEXTS
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+ISC License
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+---
+
+For full text of GPL v2 license, see: https://www.gnu.org/licenses/gpl-2.0.html
+For full text of PostgreSQL License, see: https://opensource.org/licenses/postgresql
+
+================================================================================
+
+ATTRIBUTION AND COMPLIANCE
+
+Xskaliber EFT uses these open-source components in compliance with their respective 
+licenses. We are grateful to the open-source community for their contributions.
+
+GPL Components Note: ProFTPD and ClamAV are distributed in separate containers 
+and do not impose GPL requirements on Xskaliber EFT's proprietary code. They are used as 
+separate processes/services and do not create a "combined work" under GPL terms.
+
+If you have questions about third-party licenses, contact: info@xskaliber.com
+
+Last Updated: January 2026
