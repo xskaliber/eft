@@ -323,16 +323,17 @@ sudo certbot --nginx -d yourdomain.com
 ## 🎨 Screenshots
 
 ### Admin Dashboard
-![Admin Dashboard](https://releases.yourcompany.com/meft/screenshots/dashboard.png)
+![Admin Dashboard](https://github.com/xskaliber/eft/blob/main/AdminDashboard.png)
 
-### Trading Partner Management
-![Partner Management](https://releases.yourcompany.com/meft/screenshots/partners.png)
+### Server Monitoring
+![Server Monitoring](https://github.com/xskaliber/eft/blob/main/ServerMonitoring.png)
 
-### File Processing Jobs
-![Job Monitoring](https://releases.yourcompany.com/meft/screenshots/jobs.png)
+### Activity Log
+![Activity Log](https://github.com/xskaliber/eft/blob/main/ActivityLog.png)
 
-### User Portal
-![User Files](https://releases.yourcompany.com/meft/screenshots/user-portal.png)
+### Web User Portal
+![Web User Dashboard](https://github.com/xskaliber/eft/blob/main/WebUserDashboard.png)
+
 
 ## 📚 Documentation
 
