@@ -326,7 +326,7 @@ sudo certbot --nginx -d yourdomain.com
 ![Admin Dashboard](https://github.com/xskaliber/eft/blob/main/AdminDashboard.png)
 
 ### Server Monitoring
-![Server Monitoring](https://github.com/xskaliber/eft/blob/main/ServerMonitoring.png)
+![Server Monitoring](https://github.com/xskaliber/eft/blob/main/SeverMonitoring.png)
 
 ### Activity Log
 ![Activity Log](https://github.com/xskaliber/eft/blob/main/ActivityLog.png)
