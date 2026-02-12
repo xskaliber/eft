@@ -139,7 +139,7 @@ Xskaliber EFT is a **production-ready, enterprise file transfer platform** desig
 - Docker & Docker Compose (20.10+)
 - PostgreSQL 15+ (provided via Docker or managed service)
 - 4GB RAM minimum (8GB recommended for production)
-- Valid MEFT license key
+- Valid Xskaliber EFT license key
 - AWS Account (optional - for S3/EFS storage)
 
 ## 🚀 Quick Start
@@ -150,11 +150,11 @@ Xskaliber EFT is a **production-ready, enterprise file transfer platform** desig
 
 Available editions:
 - **Starter**: Up to 10 trading partners - $299/month
-- **Professional**: Up to 100 users - $999/month  
-- **Enterprise**: Unlimited users - Custom pricing
+- **Professional**: Up to 50 trading partners - $999/month  
+- **Enterprise**: Unlimited users and trading partners - Custom pricing
 - **Trial**: 30-day free trial available
 
-### 2. Download MEFT
+### 2. Download Xskaliber EFT
 
 ```bash
 # Create deployment directory
@@ -372,7 +372,7 @@ Replace expensive EDI/MFT solutions:
 
 ## 🔒 Security & Compliance
 
-MEFT includes enterprise-grade security features:
+Xskaliber EFT includes enterprise-grade security features:
 
 ✅ **Transport Encryption**: TLS 1.3 for HTTPS, SSH for SFTP  
 ✅ **Data Encryption**: PGP/GPG encryption for files at rest  
@@ -437,7 +437,7 @@ Tested with real-world workloads:
 - White-label available
 
 ### 30-Day Free Trial
-Try MEFT risk-free with full Enterprise features:
+Try Xskaliber EFT risk-free with full Enterprise features:
 - No credit card required
 - Full feature access
 - Up to 10 users
@@ -449,14 +449,14 @@ Try MEFT risk-free with full Enterprise features:
 
 ### vs. AWS Transfer Family
 
-| Users | AWS Transfer Family | MEFT Professional | Annual Savings |
+| Users | AWS Transfer Family | Xskaliber EFT Professional | Annual Savings |
 |-------|---------------------|-------------------|----------------|
 | 10 | $438/mo | $299/mo | $1,668/year |
 | 50 | $1,080/mo | $999/mo | $972/year |
 | 100 | $2,160/mo | $999/mo | **$13,932/year** |
 | 500 | $10,800/mo | Custom | **$100,000+/year** |
 
-*AWS pricing assumes 24/7 server + data transfer. MEFT uses your infrastructure.*
+*AWS pricing assumes 24/7 server + data transfer. Xskaliber EFT uses your infrastructure.*
 
 ### Total Cost of Ownership (100 users)
 
@@ -467,7 +467,7 @@ Try MEFT risk-free with full Enterprise features:
 - **No Web UI** (would need custom development)
 - **Total: $2,542/month = $30,504/year**
 
-**MEFT Professional:**
+**Xskaliber EFT Professional:**
 - License: $999/month
 - AWS Infrastructure: ~$500/month (ECS + RDS + S3)
 - **Includes Web UI**
@@ -500,14 +500,14 @@ Try MEFT risk-free with full Enterprise features:
 2. **Download**: Get the deployment package
 3. **Configure**: Edit .env file with your settings
 4. **Deploy**: Run docker-compose up -d
-5. **Access**: Login to web UI and start using MEFT
+5. **Access**: Login to web UI and start using Xskaliber EFT
 
 ## 🔗 Links
 
-- **Website**: [yourcompany.com/meft](https://yourcompany.com/meft)
-- **Documentation**: [docs.yourcompany.com/meft](https://docs.yourcompany.com/meft)
+- **Website**: [yourcompany.com/meft](https://xskaliber.com/meft)
+- **Documentation**: [docs.yourcompany.com/meft](https://docs.xskaliber.com/meft)
 - **Docker Hub**: [hub.docker.com/r/yourorg/meft](https://hub.docker.com/r/yourorg/meft)
-- **Demo**: [demo.yourcompany.com](https://demo.yourcompany.com)
+- **Demo**: [demo.yourcompany.com](https://demo.xskaliber.com)
 
 
 ## 📧 Contact
@@ -522,7 +522,7 @@ Try MEFT risk-free with full Enterprise features:
 
 **Ready to replace AWS Transfer Family?**
 
-[Get Started Free](https://yourcompany.com/trial) • [Request Demo](https://yourcompany.com/demo) • [Contact Sales](mailto:sales@yourcompany.com)
+[Get Started Free](https://xskaliber.com/trial) • [Request Demo](https://xskaliber.com/demo) • [Contact Sales](mailto:sales@xskaliber.com)
 
 ---
 
