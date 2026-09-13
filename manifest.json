@@ -1,0 +1,10 @@
+{
+  "channels": {
+    "stable": {
+      "latest": "1.4.2",
+      "released_at": "2026-09-01T00:00:00Z",
+      "severity": "security",
+      "release_notes_url": "https://github.com/xskaliber/eft/releases/tag/v1.4.2"
+    }
+  }
+}
