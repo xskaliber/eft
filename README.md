@@ -58,20 +58,62 @@ Xskaliber EFT is a production-ready, enterprise file transfer platform that prov
 
 ## 🚀 Getting Started
 
-1. **Get a license** - see editions, pricing and the free trial at **[xskaliber.com/eft](https://www.xskaliber.com/eft/)**, or email [sales@xskaliber.com](mailto:sales@xskaliber.com).
-2. **Review the prerequisites**
-   - Docker & Docker Compose (20.10+)
-   - PostgreSQL 15+ (provided via Docker or a managed service)
-   - 4GB RAM minimum (8GB recommended for production)
-   - A valid Xskaliber EFT license key
-   - AWS account (optional, for S3/EFS storage)
-3. **Follow the installation and deployment guidance** at [xskaliber.com/eft](https://www.xskaliber.com/eft/) (Docker Compose, AWS ECS Fargate, storage backends, processing modes).
-4. **Sign in** to the web UI and **change the default admin password immediately**.
+Xskaliber EFT is sold through **AWS Marketplace** as a container product with **CloudFormation delivery**. It deploys into **your own AWS account**, so your data never leaves your environment. See editions and pricing at **[xskaliber.com/eft](https://www.xskaliber.com/eft/)**.
 
-### Deployment Options
+### 1. Subscribe on AWS Marketplace
 
-- **Cloud**: AWS ECS Fargate or EKS, auto-scaling, RDS, multi-AZ high availability
-- **On-premise**: Docker Compose on your own servers, VMware or bare metal
+Find **Xskaliber EFT** in AWS Marketplace and subscribe. Marketplace grants your account pull access to the container images and meters usage automatically, so no separate license key is needed.
+
+### 2. Prerequisites
+
+- An AWS account and region (the container images are hosted in `us-east-1` Marketplace ECR)
+- Permissions to create CloudFormation stacks, IAM roles, VPC, ECS, Aurora, S3, ALB/NLB and Secrets Manager resources
+- *(Recommended for production)* An issued **ACM certificate** in the target region for HTTPS, plus a Route 53 hosted zone if you want a DNS alias
+
+### 3. Launch the CloudFormation stack
+
+Choose **Launch CloudFormation template** from your Marketplace subscription and fill in the parameters:
+
+| Parameter | Purpose |
+|-----------|---------|
+| `DeploymentName` | Short identifier (3-32 lowercase letters, digits, hyphens) used to prefix resources. Choose it once; don't rename it later. |
+| `DeploymentSize` | `small`, `medium` or `large` (sizes the database, backend, frontend and SFTP nodes) |
+| `CertificateArn` | ACM certificate for HTTPS. If empty the UI is served over plain HTTP, which is for **evaluation only**. |
+| `AlbAllowedCidr` / `SftpAllowedCidr` | Restrict who can reach the web UI and SFTP endpoint (defaults to `0.0.0.0/0`) |
+| `CreateNewVpc` | Create a new VPC (default), or set to `false` and supply `ExistingVpcId` and the public/private subnet IDs |
+| `EnableMultiAzRds` | Multi-AZ database for high availability |
+| `EnableLambdaFileProcessing` | Optional serverless file-processing add-on |
+| `HostedZoneId` / `DomainName` | Optional Route 53 alias record |
+| `AlarmNotificationEmail` | Optional CloudWatch alarm notifications |
+
+Leave the container image and product code parameters at their defaults unless support tells you otherwise.
+
+The stack provisions the VPC, Aurora Serverless v2 (PostgreSQL), S3 storage, generated secrets, and ECS services for the backend, frontend and SFTP server, behind an Application Load Balancer (web/API) and a dedicated Network Load Balancer (SFTP).
+
+### 4. Access your installation
+
+When the stack reaches `CREATE_COMPLETE`, open its **Outputs** tab:
+
+- **ApplicationURL**: the web UI
+- **SftpEndpoint**: the hostname for partner SFTP connections
+
+Sign in to the web UI as the initial administrator and **change the default admin password immediately**. If you did not set a domain, point a DNS name at the endpoints before onboarding partners.
+
+### Upgrading
+
+Update the stack from the AWS console with the new image tags for the new release (`BackendImageTag`, `FrontendImageTag`, `SftpImageTag`). Release notes are announced on the Marketplace listing.
+
+### Removing a deployment
+
+Delete the stack in CloudFormation. Your S3 data bucket and a final database snapshot are retained by default so nothing is deleted silently. Remove them manually once you no longer need them.
+
+### Deployment sizing
+
+| Size | Database (Aurora ACU) | Backend | SFTP node |
+|------|----------------------|---------|-----------|
+| small | 0.5-4 | 0.5 vCPU / 1 GB | t3.small |
+| medium | 1-8 | 1 vCPU / 2 GB | t3.medium |
+| large | 2-16 | 2 vCPU / 4 GB | t3.large |
 
 ## 🐞 Reporting Bugs and Issues
 
@@ -79,8 +121,8 @@ Found a problem or have a feature request? Please [open an issue](https://github
 
 Before opening one, search [existing issues](https://github.com/xskaliber/eft/issues) to see if it has already been reported. A good report includes:
 
-- Xskaliber EFT version and deployment type (Docker Compose, ECS, on-premise)
-- Storage backend and processing mode in use
+- Xskaliber EFT version (image tags) and AWS region
+- Deployment size and whether the Lambda file-processing add-on is enabled
 - Steps to reproduce, expected behavior and actual behavior
 - Relevant logs or screenshots (**remove passwords, keys, license keys and partner data first**)
 

@@ -22,19 +22,20 @@ assignees: ''
 <!-- What actually happened -->
 
 ## Environment
-- **OS**: [e.g., Ubuntu 22.04, Windows 11, macOS 13]
+- **Xskaliber EFT Version**: [e.g., image tags backend-1.0.0 / frontend-1.0.0 / sftp-1.0.0]
+- **AWS Region**: [e.g., us-east-1]
+- **Deployment Size**: [small / medium / large]
+- **Lambda File Processing Add-on**: [enabled / disabled]
+- **HTTPS Certificate / Custom Domain**: [yes / no]
 - **Browser**: [e.g., Chrome 120, Firefox 121] (if applicable)
-- **MEFT Version**: [e.g., v1.2.3 or commit hash]
-- **Deployment Type**: [Docker Compose / ECS / EKS / EC2]
-- **Storage Backend**: [S3 / EFS / MinIO / Local]
-- **Database**: [PostgreSQL version]
+- **SFTP Client**: [e.g., OpenSSH 9.6, WinSCP 6.3] (if applicable)
 
-## Configuration
-<!-- Relevant configuration (sanitize any secrets!) -->
+## Stack Parameters
+<!-- Relevant CloudFormation parameters that differ from the defaults (sanitize any secrets!) -->
 
-```yaml
-STORAGE_TYPE=s3
-PROCESSING_MODE=direct
+```
+DeploymentSize=small
+EnableMultiAzRds=false
 # etc.
 ```
 
