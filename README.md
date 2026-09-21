@@ -4,7 +4,7 @@
 
 **The AWS Transfer Family alternative with complete enterprise features**
 
-[Website & Pricing](https://www.xskaliber.com/eft/) • [Getting Started](#-getting-started) • [Report a Bug](#-reporting-bugs-and-issues) • [Support](#-support)
+[Website & Pricing](https://www.xskaliber.com/eft/) • [Getting Started](#-getting-started) • [Tutorials](tutorials/README.md) • [Report a Bug](#-reporting-bugs-and-issues) • [Support](#-support)
 
 </div>
 
@@ -114,6 +114,22 @@ Delete the stack in CloudFormation. Your S3 data bucket and a final database sna
 | small | 0.5-4 | 0.5 vCPU / 1 GB | t3.small |
 | medium | 1-8 | 1 vCPU / 2 GB | t3.medium |
 | large | 2-16 | 2 vCPU / 4 GB | t3.large |
+
+## 📖 Tutorials
+
+Once your stack is running, follow the step-by-step **[tutorials](tutorials/README.md)**:
+
+1. [First login and console tour](tutorials/01-first-login-and-console-tour.md)
+2. [Tenants and users](tutorials/02-tenants-and-users.md)
+3. [Onboard a trading partner](tutorials/03-onboard-a-trading-partner.md)
+4. [Restrict access with IP ACLs](tutorials/04-ip-access-control.md)
+5. [SFTP users and SSH keys](tutorials/05-sftp-users-and-ssh-keys.md)
+6. [PGP keys](tutorials/06-pgp-keys.md)
+7. [Automate transfers with partner jobs](tutorials/07-partner-jobs.md)
+8. [Monitoring and audit](tutorials/08-monitoring-and-audit.md)
+9. [System settings](tutorials/09-system-settings.md)
+10. [Single sign-on (SSO)](tutorials/10-single-sign-on.md)
+11. [Using the web portal](tutorials/11-web-user-portal.md)
 
 ## 🐞 Reporting Bugs and Issues
 
