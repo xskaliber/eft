@@ -45,16 +45,16 @@ Xskaliber EFT is a production-ready, enterprise file transfer platform that prov
 ## 🎨 Screenshots
 
 ### Admin Dashboard
-![Admin Dashboard](https://github.com/xskaliber/eft/blob/main/AdminDashboard.png)
+![Admin Dashboard](https://github.com/xskaliber/eft/blob/main/images/AdminDashboard.png)
 
 ### Server Monitoring
-![Server Monitoring](https://github.com/xskaliber/eft/blob/main/SeverMonitoring.png)
+![Server Monitoring](https://github.com/xskaliber/eft/blob/main/images/SeverMonitoring.png)
 
 ### Activity Log
-![Activity Log](https://github.com/xskaliber/eft/blob/main/ActivityLog.png)
+![Activity Log](https://github.com/xskaliber/eft/blob/main/images/ActivityLog.png)
 
 ### Web User Portal
-![Web User Dashboard](https://github.com/xskaliber/eft/blob/main/WebUserDashboard.png)
+![Web User Dashboard](https://github.com/xskaliber/eft/blob/main/images/WebUserDashboard.png)
 
 ## 🚀 Getting Started
 
