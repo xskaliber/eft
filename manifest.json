@@ -3,7 +3,7 @@
     "stable": {
       "latest": "1.0.3",
       "released_at": "2026-10-19T00:00:00Z",
-      "severity": "security",
+      "severity": "routine",
       "release_notes_url": "https://github.com/xskaliber/eft/blob/main/release-notes/v1.0.3.md"
     }
   }
