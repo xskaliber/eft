@@ -16,10 +16,12 @@ Go to **System Settings**. Settings are grouped into tabs:
 | **Security Configuration** | Security-related values (see [Sign-in security](#sign-in-security)) |
 | **File Processing Configuration** | File size limit, timeout, concurrency |
 | **Application Configuration** | Application name and description, environment, debug and maintenance modes |
+| **Updates** | Whether the installation checks for new releases, and the result of the last check (see [Update checks](#update-checks)) |
 
 Each row shows the setting, its current value, its type, and badges:
 
 - **Managed by deployment**: the value comes from your CloudFormation stack and is re-applied every time the service starts. It has no edit button. To change it, update the stack.
+- **Read-only**: the value is recorded by the system, such as the result of the last update check. It is shown for reference and has no edit button.
 - **Encrypted** or **Sensitive**: the value is masked in the list and stored encrypted.
 - **Restart**: the change takes effect only after the service is restarted.
 
@@ -96,7 +98,25 @@ For staff accounts, prefer [single sign-on](10-single-sign-on.md) so your identi
 
 ## Update checks
 
-Once a day the installation checks whether a newer Xskaliber EFT release is available, by reading a small public version file from this repository. Nothing about your installation is sent. If outbound internet access is blocked, the check fails quietly and nothing else is affected.
+Once a day the installation checks whether a newer Xskaliber EFT release is available, by reading a small public version file from this repository. Nothing about your installation is sent. When a newer release is out, the console shows an **Update Available** banner (see [Upgrading](../README.md#-upgrading)).
+
+The **Updates** tab has one setting:
+
+| Setting | Default | What it does |
+|---------|---------|--------------|
+| **Check for Updates** | On | Turn it off if your network blocks outbound internet access or your policy doesn't allow software to check for updates. The change takes effect without a restart. |
+
+The other rows on the tab are **Read-only** and show the result of the most recent check:
+
+| Row | Shows |
+|-----|-------|
+| **Last Checked At** | When the last check ran |
+| **Latest Known Version** | The newest release the check found |
+| **Latest Release Severity** | `routine`, or `security` for a release that fixes a security issue |
+| **Latest Release Notes URL** | The release notes for that version |
+| **Last Check Error** | Why the last check failed. Empty when it succeeded. |
+
+If outbound internet access is blocked, the check fails quietly, **Last Check Error** says why, and nothing else is affected. Either allow the version file through your firewall (see [Network access](../README.md#network-access)) or turn **Check for Updates** off. With checks off you won't see the banner, so watch the [release notes](../release-notes/README.md) for new versions instead.
 
 ## Good practice
 

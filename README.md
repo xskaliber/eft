@@ -116,7 +116,7 @@ The installation makes these outbound HTTPS (443) connections. A stack that crea
 |-------------|---------|
 | AWS service endpoints in your region, and AWS Marketplace in `us-east-1` | Container images, storage, secrets, logs and subscription checks |
 | `database.clamav.net` | Virus definition updates, several times a day |
-| `raw.githubusercontent.com` | Daily check for new Xskaliber EFT releases ([manifest.json](manifest.json) in this repository). Optional; nothing breaks if blocked. |
+| `raw.githubusercontent.com` | Daily check for new Xskaliber EFT releases ([manifest.json](manifest.json) in this repository). Optional; nothing breaks if blocked, and it can be turned off under **System Settings → Updates**. |
 | Your trading partners' servers | Partner jobs that pull from or push to partner SFTP/FTP/FTPS servers |
 
 ## 🔄 Upgrading
