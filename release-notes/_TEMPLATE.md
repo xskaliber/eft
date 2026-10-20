@@ -8,9 +8,14 @@
   2. Add a row to the top of the table in release-notes/README.md.
   3. Update the "latest release" link in the main README.md.
   4. Update manifest.json: "latest", "released_at", "severity"
-     ("security" or "routine") and "release_notes_url". Running installs
-     read this file to show the Update Available banner, so change it last,
-     once the Marketplace version is live.
+     ("security" or "routine") and "release_notes_url", set to
+     https://github.com/xskaliber/eft/blob/main/release-notes/vX.Y.Z.md
+     Running installs read this file to show the Update Available banner,
+     so change it last, once the Marketplace version is live.
+
+  Do NOT create a GitHub Release or a version tag in this repo. GitHub
+  attaches "Source code (zip/tar.gz)" downloads to every release and they
+  can't be removed. This file is the release note; the manifest links to it.
 
   Audience: customers' administrators. Describe what they see and do in the
   console or CloudFormation. Don't mention source files, internal service
