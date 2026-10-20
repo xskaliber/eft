@@ -1,6 +1,6 @@
 # 9. System settings
 
-**Goal:** review and adjust global platform settings such as email, security policy and processing limits.
+**Goal:** review and adjust global platform settings such as SFTP limits, host keys and processing limits.
 
 **Requires:** System Administrator. Settings apply globally across **all tenants**.
 
@@ -10,19 +10,20 @@ Go to **System Settings**. Settings are grouped into tabs:
 
 | Tab | Covers |
 |-----|--------|
-| **Storage Configuration** | Storage type and provider, bucket, region, endpoint, user directory prefix |
-| **SFTP Configuration** | Port, max connections, idle and connection timeouts, compression, log level, SSH host keys |
-| **SMTP/Email Configuration** | Mail server used for notifications such as job completion emails |
-| **Security Configuration** | Token lifetime, password length, login lockout |
-| **File Processing Configuration** | Processing mode, file size limit, timeout, concurrency |
-| **Application Configuration** | Application name, environment, debug and maintenance modes |
+| **Storage Configuration** | Storage provider, bucket, region and user directory prefix |
+| **SFTP Configuration** | Public hostname, port, max connections, timeouts, compression, log level, SSH host keys |
+| **SMTP/Email Configuration** | Mail server details. Email notifications aren't available yet, so these values aren't used. |
+| **Security Configuration** | Security-related values (see [Sign-in security](#sign-in-security)) |
+| **File Processing Configuration** | File size limit, timeout, concurrency |
+| **Application Configuration** | Application name and description, environment, debug and maintenance modes |
 
 Each row shows the setting, its current value, its type, and badges:
 
+- **Managed by deployment**: the value comes from your CloudFormation stack and is re-applied every time the service starts. It has no edit button. To change it, update the stack.
 - **Encrypted** or **Sensitive**: the value is masked in the list and stored encrypted.
 - **Restart**: the change takes effect only after the service is restarted.
 
-> Many storage, database and secret values on a Marketplace deployment are provisioned by the CloudFormation stack. Leave those unchanged unless support advises otherwise, and adjust the settings below instead.
+On a Marketplace deployment the storage bucket and region, the environment, and the file size and processing timeout limits are managed by the deployment.
 
 ## Change a setting
 
@@ -39,32 +40,9 @@ Click the **History** icon on a row to see previous values, who changed them, wh
 
 ## Common tasks
 
-### Set up email notifications
+### Set the SFTP public hostname
 
-Job completion emails and other notifications need a mail server. In **SMTP/Email Configuration**, set:
-
-| Setting | Notes |
-|---------|-------|
-| **SMTP Host** | Your mail server hostname (empty by default) |
-| **SMTP Port** | `587` by default |
-| **SMTP Username** / **SMTP Password** | Password is stored encrypted |
-| **From Address** | Sender shown on notifications, for example `noreply@yourcompany.com` |
-| **Use TLS** | Keep on unless your server requires otherwise |
-
-Then create a [partner job](07-partner-jobs.md) with **Send Completion Email** to test it. If you use Amazon SES, use its SMTP endpoint and SMTP credentials.
-
-### Tighten login security
-
-In **Security Configuration**:
-
-| Setting | Default | Range |
-|---------|---------|-------|
-| **Min Password Length** | 8 | 6-128 |
-| **Max Login Attempts** | 5 | 3-10 |
-| **Lockout Duration** (minutes) | 30 | 5-1440 |
-| **JWT Expiration** (hours) | 24 | 1-720 |
-
-Consider a longer minimum password length, and a shorter token lifetime for stricter session control. For staff, prefer [SSO](10-single-sign-on.md).
+**SFTP Public Hostname** (SFTP Configuration) is the name partners connect to. It is shown on **Getting Started** when you share connection details. On AWS it fills in automatically with the SFTP load balancer's hostname. If you've pointed your own DNS name (for example `sftp.yourcompany.com`) at the **SftpEndpoint**, change it to that name.
 
 ### Tune SFTP
 
@@ -83,6 +61,8 @@ Use `DEBUG` temporarily while troubleshooting a partner connection, then return 
 
 Under **SFTP Configuration** you can view, copy and download the server's **RSA, ECDSA and ED25519 host keys**, see their fingerprints, and click **Generate New** to replace one. Restart the SFTP service afterwards for a change to apply.
 
+Each installation generates its own unique host keys automatically.
+
 > **Regenerating a host key changes the server's fingerprint.** Partners will see a host-key mismatch warning on their next connection. Notify them first, and share the new fingerprint through a trusted channel.
 
 ### Tune file processing
@@ -91,16 +71,32 @@ In **File Processing Configuration**:
 
 | Setting | Default | Range |
 |---------|---------|-------|
-| **Processing Mode** | `backend` | `backend` or `lambda` |
 | **Max File Size** (MB) | 100 | 1-10000 |
 | **Processing Timeout** (minutes) | 30 | 1-1440 |
 | **Concurrent Jobs** | 10 | 1-100 |
 
-`lambda` mode requires the Lambda file-processing add-on to have been enabled on your CloudFormation stack (`EnableLambdaFileProcessing`).
+File processing (encryption, compression and virus scanning) runs inside the application's backend service. On a Marketplace deployment, **Max File Size** and **Processing Timeout** are managed by the deployment.
 
 ### Maintenance and environment
 
-In **Application Configuration**, set **Environment** to `production` for live use. **Maintenance Mode** and **Debug Mode** are on/off switches. Leave **Debug Mode** off in production.
+In **Application Configuration**, **Maintenance Mode** and **Debug Mode** are on/off switches. Leave **Debug Mode** off in production. **Environment** is managed by the deployment and is `production` on Marketplace installs.
+
+## Sign-in security
+
+These protections are built in and always on. The values under **Security Configuration** don't change them yet.
+
+| Protection | Behavior |
+|------------|----------|
+| Password strength | At least **12 characters**, with both letters and numbers |
+| Temporary passwords | A password set by an administrator must be changed by the user at their next web sign-in |
+| Failed sign-ins | After **10 failed attempts in 15 minutes**, further attempts for that username are refused until the window passes |
+| Sessions | Sign-in sessions last up to **24 hours**. Deactivating a user, changing their personas or resetting their password takes effect immediately. |
+
+For staff accounts, prefer [single sign-on](10-single-sign-on.md) so your identity provider's policies (MFA, password rules) apply.
+
+## Update checks
+
+Once a day the installation checks whether a newer Xskaliber EFT release is available, by reading a small public version file from this repository. Nothing about your installation is sent. If outbound internet access is blocked, the check fails quietly and nothing else is affected.
 
 ## Good practice
 

@@ -6,7 +6,7 @@ Step-by-step guides for setting up and using Xskaliber EFT after your [AWS Marke
 
 | # | Tutorial | Who it's for | Time |
 |---|----------|--------------|------|
-| 1 | [First login and console tour](01-first-login-and-console-tour.md) | Administrators | 10 min |
+| 1 | [First-run setup and console tour](01-first-login-and-console-tour.md) | Administrators | 15 min |
 | 2 | [Tenants and users](02-tenants-and-users.md) | Administrators | 15 min |
 | 3 | [Onboard a trading partner](03-onboard-a-trading-partner.md) | Administrators | 15 min |
 | 4 | [Restrict access with IP ACLs](04-ip-access-control.md) | Administrators | 5 min |
@@ -28,6 +28,8 @@ Step-by-step guides for setting up and using Xskaliber EFT after your [AWS Marke
 | **Partner job** | An automated, scheduled transfer or processing task. |
 | **Persona** | A user's role: Administrator, System Administrator, Web User, or SFTP User. |
 
-Each page in the console also has a **Help** drawer (the `?` icon) with context-sensitive guidance.
+Each page in the console also has a **Help** drawer (the `?` icon) with context-sensitive guidance, and System Administrators get a **Getting Started** checklist after first-run setup.
+
+These tutorials describe the latest release. See the [release notes](../release-notes/README.md) for what changed in each version.
 
 Something unclear or broken? [Open an issue](https://github.com/xskaliber/eft/issues/new).

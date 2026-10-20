@@ -10,7 +10,15 @@ SSO authenticates **Administrator and System Administrator** accounts only. Tena
 
 ## Before you start
 
-Create an OpenID Connect (OIDC) application in your IdP and note its **Client ID**, **Client Secret** and **Issuer URL**. Register the **Redirect URL** shown on the Xskaliber EFT form as an allowed redirect in the IdP.
+Create an OpenID Connect (OIDC) application in your IdP and note its **Client ID**, **Client Secret** and **Issuer URL**. Register this as an allowed redirect URL in the IdP:
+
+```
+<ApplicationURL>/api/auth/sso/callback
+```
+
+For example `https://eft.yourcompany.com/api/auth/sso/callback`. The Xskaliber EFT form pre-fills the same value.
+
+Your IdP must include a **verified email** in the ID token. Sign-ins without one are rejected.
 
 ## Steps
 
@@ -36,7 +44,7 @@ Create an OpenID Connect (OIDC) application in your IdP and note its **Client ID
 
 - **Only one integration can be enabled at a time.** Enabling one disables any other.
 - Once an admin account is linked to SSO, **password sign-in is disabled for it.**
-- **Keep a break-glass account outside SSO** in case the IdP is unavailable.
+- **Keep a break-glass account outside SSO** in case the IdP is unavailable. The account created during [first-run setup](01-first-login-and-console-tour.md) is a break-glass account and keeps password sign-in.
 - With a group claim, removing someone from the group deactivates their account on their **next sign-in attempt**, not instantly. It does not end a session already in progress. Adding them back reactivates it.
 
 ## Next

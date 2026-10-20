@@ -6,6 +6,25 @@
 
 **Dashboard** shows activity, subscription status, file processing and active server nodes. Click any stat card to jump to that area. The recent files and activity lists cover all tenants and partners you can access.
 
+## Banners
+
+Banners at the top of the console flag things that need attention:
+
+| Banner | Meaning |
+|--------|---------|
+| **Getting Started** | Setup items are still open, or something is wrong (for example storage is unreachable). See [tutorial 1](01-first-login-and-console-tour.md#3-work-through-getting-started). |
+| **Update Available** | A newer release is out. Read its [release notes](../release-notes/README.md), then [upgrade](../README.md#-upgrading). It can be dismissed for the session. |
+| **Subscription** | Your AWS Marketplace subscription couldn't be confirmed. See [Subscription status](#subscription-status). |
+
+## Subscription status
+
+The installation checks your AWS Marketplace subscription when it starts and once a day after that.
+
+- If a check fails for a temporary reason, such as an AWS outage, everything keeps working and a warning banner shows for up to **5 days** while it retries.
+- If the subscription is cancelled or can't be confirmed after that, the installation becomes **read-only**: you can still sign in, view and download data, but changes are blocked. A successful check restores normal operation.
+
+If you see a subscription banner and believe your subscription is active, contact [support@xskaliber.com](mailto:support@xskaliber.com).
+
 ## Server monitoring
 
 Go to **Servers**.
@@ -29,7 +48,7 @@ If a node stays offline, check its ECS task in the AWS console and the stack's C
 | Frequency | Check |
 |-----------|-------|
 | Daily | Dashboard, and any **Failed** job executions |
-| Weekly | Servers online, Activity Log for unusual logins |
+| Weekly | Servers online, Activity Log for unusual logins, any **Update Available** banner |
 | Quarterly | Users and ACLs still valid; deactivate leavers; rotate PGP keys |
 
 ## Next

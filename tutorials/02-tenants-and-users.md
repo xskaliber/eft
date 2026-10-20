@@ -37,15 +37,22 @@ Administrator and System Administrator are **exclusive**: selecting one clears a
 4. For Web or SFTP users, select the **Tenant** first, then the **Trading Partner**. The partner list only shows partners under that tenant.
 5. Review the **Home Directory**. It auto-fills as `users/{username}`.
 6. For SFTP users, set the **SFTP Shell**. Keep `/bin/false` (the default) for SFTP-only access.
-7. Save.
+7. Set a **Password**: at least 12 characters, with both letters and numbers. Users who sign in to the web console must change it at their first sign-in.
+8. Save.
 
 Setting a tenant or partner on a user limits the data and files they can see to that organization.
 
-> Only System Administrators can edit Administrator or System Administrator accounts.
+> Only System Administrators can create or edit Administrator and System Administrator accounts, or grant those personas.
+
+## Resetting a password
+
+Edit the user and enter a **New Password**. It is treated as temporary: the user must choose their own at their next web sign-in. Leave the field empty to keep the current password.
 
 ## Deactivating a user
 
-Edit the user and untick **Active**. Their history is kept.
+Edit the user and untick **Active**. This takes effect **immediately**, including for anyone already signed in. Their history is kept.
+
+Persona changes and password resets also apply right away, without waiting for the user to sign out.
 
 ## Next
 

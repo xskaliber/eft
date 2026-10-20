@@ -22,10 +22,10 @@ assignees: ''
 <!-- What actually happened -->
 
 ## Environment
-- **Xskaliber EFT Version**: [e.g., image tags backend-1.0.0 / frontend-1.0.0 / sftp-1.0.0]
+- **Xskaliber EFT Version**: [e.g., 1.0.3, shown in the console footer and on the About page]
 - **AWS Region**: [e.g., us-east-1]
 - **Deployment Size**: [small / medium / large]
-- **Lambda File Processing Add-on**: [enabled / disabled]
+- **VPC**: [new VPC created by the stack / existing VPC]
 - **HTTPS Certificate / Custom Domain**: [yes / no]
 - **Browser**: [e.g., Chrome 120, Firefox 121] (if applicable)
 - **SFTP Client**: [e.g., OpenSSH 9.6, WinSCP 6.3] (if applicable)

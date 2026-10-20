@@ -4,7 +4,11 @@
 
 ## Sign in
 
-Open the URL your administrator gave you and sign in with your username and password. After first login, open your **Profile** and change your password (you'll need to enter the current one).
+Open the URL your administrator gave you and sign in with your username and password.
+
+The password your administrator gave you is **temporary**. At your first sign-in you're asked to enter it again and choose a new one: at least 12 characters, with both letters and numbers. You can change your password later from your **Profile**.
+
+If you see *Access denied: this account is restricted to SFTP access only*, your account isn't enabled for the web portal. Ask your administrator to add the **Web User** persona.
 
 ## Dashboard
 

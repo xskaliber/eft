@@ -22,8 +22,7 @@ Pull and Push jobs need the partner to be configured with **Server Ownership = P
 6. Tick **Use PGP Decryption** and choose the PGP Decryption Key. Set the **PGP File Extension** to match what the partner sends, for example `.pgp`.
 7. If files arrive compressed, tick **Use Decompression** and pick the algorithm (**GZIP**, **BZIP2** or **ZIP**).
 8. Choose what happens to originals with the **Lifecycle Strategy** (below).
-9. Optionally tick **Send Completion Email** and enter comma-separated addresses.
-10. Leave **Job Active** ticked and save.
+9. Leave **Job Active** ticked and save.
 
 ## Cron schedule
 
@@ -57,6 +56,18 @@ Use **Keep Both** or **Archive** if you need an audit trail.
 3. For a **Failed** run, read the error message, fix the cause, then use **Retry** in the Actions column (up to the job's maximum retries).
 
 To see each processing step applied to a file (decrypt, decompress, virus scan), open the file under **Partner Files**.
+
+Common failure causes:
+
+| Error mentions | Fix |
+|----------------|-----|
+| Host key mismatch | The partner's SFTP server presented a different host key than the one pinned on the partner. Confirm the change with the partner, then update or clear **Pinned SFTP Host Key** ([tutorial 3](03-onboard-a-trading-partner.md#partner-server-host-keys)). |
+| Authentication | The partner's **Transfer User**, password or auth key is wrong or has changed |
+| Decryption | The wrong **PGP Decryption Key** is selected, or its passphrase is wrong |
+
+## Virus scanning
+
+Files are scanned with ClamAV. Virus definitions update automatically every few hours, so the backend needs outbound HTTPS access to `database.clamav.net`. Stacks created from the standard template already have this.
 
 ## Next
 

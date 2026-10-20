@@ -27,6 +27,8 @@
 
 If you do generate a Private key in the console, its matching public key is displayed **once**. Copy it before leaving the page.
 
+Stored private keys and passphrases are never displayed again. When editing a private key, leave the key and passphrase fields blank to keep the stored values, or paste a replacement.
+
 Typical exchange:
 
 1. **Your partner** sends you their **public** key. Add it as a Public key and set it as their **PGP Encryption Key**.

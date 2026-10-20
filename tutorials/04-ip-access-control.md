@@ -6,6 +6,7 @@
 
 Each ACL is an **allow-list** entry that permits connections from an address or range as that partner.
 
+- Rules are checked by the SFTP server when one of that partner's users connects. Each partner's rules apply only to its own users.
 - A partner with **no ACL rules is not IP-restricted**.
 - Add at least one rule to start restricting access.
 - Only **IPv4** addresses and CIDR ranges are supported (no IPv6, no hostnames).
