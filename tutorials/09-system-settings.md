@@ -12,8 +12,8 @@ Go to **System Settings**. Settings are grouped into tabs:
 |-----|--------|
 | **Storage Configuration** | Storage provider, bucket, region and user directory prefix |
 | **SFTP Configuration** | Public hostname, port, max connections, timeouts, compression, log level, SSH host keys |
-| **SMTP/Email Configuration** | Mail server details. Email notifications aren't available yet, so these values aren't used. |
-| **Security Configuration** | Security-related values (see [Sign-in security](#sign-in-security)) |
+| **SMTP/Email Configuration** | Mail server for job completion emails (see [Email](#email)) |
+| **Security Configuration** | Password length, sign-in lockout and session length (see [Sign-in security](#sign-in-security)) |
 | **File Processing Configuration** | File size limit, timeout, concurrency |
 | **Application Configuration** | Application name and description, environment, debug and maintenance modes |
 | **Updates** | Whether the installation checks for new releases, and the result of the last check (see [Update checks](#update-checks)) |
@@ -83,16 +83,34 @@ File processing (encryption, compression and virus scanning) runs inside the app
 
 In **Application Configuration**, **Maintenance Mode** and **Debug Mode** are on/off switches. Leave **Debug Mode** off in production. **Environment** is managed by the deployment and is `production` on Marketplace installs.
 
+### Email
+
+Jobs with **Send Completion Email** turned on email their recipients when they succeed or fail ([tutorial 7](07-partner-jobs.md)). Set up the mail server under **SMTP/Email Configuration**:
+
+| Setting | Notes |
+|---------|-------|
+| **SMTP Host** | Your mail server or relay, for example Amazon SES (`email-smtp.<region>.amazonaws.com`). Leave it empty to send no email. |
+| **SMTP Port** | `587` (STARTTLS) or `465` (TLS) |
+| **SMTP Username** / **SMTP Password** | The server's credentials. Leave the username empty for a relay that doesn't require sign-in. |
+| **From Address** | The sender address. Your mail server must allow sending from it, for example a verified identity in Amazon SES. |
+| **Use TLS** | Leave on. Email is then sent only over an encrypted connection. Turn it off only for an internal relay without TLS. |
+
+After saving, enter an address under **Send test email** at the bottom of the tab and select **Send test email**. If it fails, the message shows the mail server's reason, such as rejected credentials or an unreachable host.
+
+The backend needs outbound access to the mail server's port. Some networks, including AWS by default, restrict outbound port 25, so use 587 or 465.
+
 ## Sign-in security
 
-These protections are built in and always on. The values under **Security Configuration** don't change them yet.
+These protections are always on. Values under **Security Configuration** can tighten them within the limits shown, and apply without a restart.
 
-| Protection | Behavior |
-|------------|----------|
-| Password strength | At least **12 characters**, with both letters and numbers |
-| Temporary passwords | A password set by an administrator must be changed by the user at their next web sign-in |
-| Failed sign-ins | After **10 failed attempts in 15 minutes**, further attempts for that username are refused until the window passes |
-| Sessions | Sign-in sessions last up to **24 hours**. Deactivating a user, changing their personas or resetting their password takes effect immediately. |
+| Protection | Default | Setting (allowed range) |
+|------------|---------|-------------------------|
+| Password strength | At least **12 characters**, with both letters and numbers | **Min Password Length** (12 to 128). Applies when a password is next set or changed. |
+| Failed sign-ins | After **10 failed attempts in 15 minutes**, further attempts for that username are refused until the window passes | **Max Login Attempts** (3 to 10) and **Lockout Duration** in minutes (5 to 1440) |
+| Sessions | Sign-in sessions last up to **24 hours** | **Session Lifetime** in hours (1 to 168). Applies to new sign-ins. |
+| Temporary passwords | A password set by an administrator must be changed by the user at their next web sign-in | None |
+
+Deactivating a user, changing their personas or resetting their password takes effect immediately, whatever the session lifetime.
 
 For staff accounts, prefer [single sign-on](10-single-sign-on.md) so your identity provider's policies (MFA, password rules) apply.
 

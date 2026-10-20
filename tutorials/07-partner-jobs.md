@@ -22,7 +22,8 @@ Pull and Push jobs need the partner to be configured with **Server Ownership = P
 6. Tick **Use PGP Decryption** and choose the PGP Decryption Key. Set the **PGP File Extension** to match what the partner sends, for example `.pgp`.
 7. If files arrive compressed, tick **Use Decompression** and pick the algorithm (**GZIP**, **BZIP2** or **ZIP**).
 8. Choose what happens to originals with the **Lifecycle Strategy** (below).
-9. Leave **Job Active** ticked and save.
+9. Optionally turn on **Send Completion Email** and enter comma-separated addresses. They are emailed each time the job succeeds or fails. This needs a mail server under **System Settings → SMTP/Email Configuration** ([tutorial 9](09-system-settings.md#email)).
+10. Leave **Job Active** ticked and save.
 
 ## Cron schedule
 
