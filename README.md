@@ -1,8 +1,8 @@
-# Xskaliber EFT - Managed Enterprise File Transfer
+# Xskaliber EFT - Enterprise File Transfer
 
 <div align="center">
 
-**The AWS Transfer Family alternative with complete enterprise features**
+**A production-ready enterprise file transfer platform that runs entirely inside your own AWS environment**
 
 [Website & Pricing](https://www.xskaliber.com/eft/) • [Getting Started](#-getting-started) • [Tutorials](tutorials/README.md) • [Report a Bug](#-reporting-bugs-and-issues) • [Support](#-support)
 
